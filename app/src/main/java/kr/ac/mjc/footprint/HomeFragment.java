@@ -91,7 +91,7 @@ public class HomeFragment extends Fragment {
 
         ImageView user_profile = view.findViewById(R.id.profile_iv);
 
-        Thread mThread = new Thread(){
+        /*Thread mThread = new Thread(){
             @Override
 
             public void run() {
@@ -139,7 +139,7 @@ public class HomeFragment extends Fragment {
 
             e.printStackTrace();
 
-        }
+        }*/
 
         TextView user_name = view.findViewById(R.id.name_tv);
         user_name.setText(user.getDisplayName());
