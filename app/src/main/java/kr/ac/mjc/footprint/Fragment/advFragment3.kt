@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import kr.ac.mjc.footprint.R
 
-class advFragment2 : Fragment() {
+class advFragment3 : Fragment() {
 
     lateinit var imageIv:ImageView
 
@@ -16,7 +17,7 @@ class advFragment2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         //layout을 가져와서 view 로 리턴
-        var view = inflater.inflate(R.layout.frame_2, container, false)
+        var view = inflater.inflate(R.layout.frame_1, container, false)
         imageIv = view.findViewById(R.id.imageView1)
         return view
 

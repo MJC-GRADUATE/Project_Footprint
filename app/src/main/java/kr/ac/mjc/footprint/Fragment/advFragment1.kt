@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import kr.ac.mjc.footprint.R
 
 class advFragment1 : Fragment() {
 

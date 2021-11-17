@@ -1,6 +1,5 @@
 package kr.ac.mjc.footprint
 
-import android.app.Fragment
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -12,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kr.ac.mjc.footprint.Data.Post2
 import java.util.*
 
 class NoteAddActivity:AppCompatActivity() {

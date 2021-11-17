@@ -1,8 +1,6 @@
-package kr.ac.mjc.footprint;
+package kr.ac.mjc.footprint.Fragment;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,20 +17,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import kotlin.Result;
 import kotlin.jvm.internal.Intrinsics;
+import kr.ac.mjc.footprint.Fragment.advFragment1;
+import kr.ac.mjc.footprint.Fragment.advFragment2;
+import kr.ac.mjc.footprint.Fragment.advFragment3;
+import kr.ac.mjc.footprint.R;
 
 public class HomeFragment extends Fragment {
 

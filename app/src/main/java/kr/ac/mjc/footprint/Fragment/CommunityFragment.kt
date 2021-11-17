@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.Fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -17,9 +17,13 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import de.hdodenhof.circleimageview.CircleImageView
+import kr.ac.mjc.footprint.*
+import kr.ac.mjc.footprint.Data.Post
+import kr.ac.mjc.footprint.Data.User
+import kr.ac.mjc.footprint.adapter.AddAdapter
 
 
-class CommunityFragment:Fragment(),AddAdapter.OnItemClickListener {
+class CommunityFragment:Fragment(), AddAdapter.OnItemClickListener {
     lateinit var profileIv: CircleImageView
     lateinit var nameTv: TextView
     lateinit var diaryRv: RecyclerView
@@ -28,7 +32,7 @@ class CommunityFragment:Fragment(),AddAdapter.OnItemClickListener {
     lateinit var firestore: FirebaseFirestore
 
     lateinit var postList:ArrayList<Post> //이후 수업떄 가져옴
-    lateinit var addAdapter:AddAdapter
+    lateinit var addAdapter: AddAdapter
 
     lateinit var income_text: TextView
     lateinit var exp_text: TextView
@@ -64,7 +68,7 @@ class CommunityFragment:Fragment(),AddAdapter.OnItemClickListener {
         exp_text = view.findViewById(R.id.exp_tv)
 
         fab.setOnClickListener {
-            var intent = Intent(activity,AddActivity::class.java)
+            var intent = Intent(activity, AddActivity::class.java)
             startActivity(intent)
         }
 
@@ -110,7 +114,7 @@ class CommunityFragment:Fragment(),AddAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(post: Post) {
-        val intent3 = Intent(activity,CommunityDetailActivity::class.java)
+        val intent3 = Intent(activity, CommunityDetailActivity::class.java)
         intent3.putExtra("id",post.id)
         startActivity(intent3)
     }

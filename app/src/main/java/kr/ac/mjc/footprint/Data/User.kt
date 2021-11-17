@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.Data
 
 class User {
     //생성자 생성

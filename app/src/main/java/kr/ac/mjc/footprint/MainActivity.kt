@@ -1,16 +1,10 @@
 package kr.ac.mjc.footprint
 
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Base64
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
-
+import kr.ac.mjc.footprint.adapter.PageAdapter
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewpager:ViewPager
     lateinit var tabLayout:TabLayout
 
-    lateinit var pageAdapter:PageAdapter
+    lateinit var pageAdapter: PageAdapter
 
 
 
@@ -33,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         tabLayout=findViewById(R.id.tablayout)
 
 
-        pageAdapter=PageAdapter(supportFragmentManager) // 엑티비티에 기본으로 들어있는 멤버변수
+        pageAdapter= PageAdapter(supportFragmentManager) // 엑티비티에 기본으로 들어있는 멤버변수
         //페이지어뎀터가 이를 달아서 일어나는 ui적 변화를 프레그먼트에 전달가능하게해준다.
         //페이지어뎁터를 뷰 페이저에 연결 하기.
         viewpager.adapter=pageAdapter //뷰페이저의 어뎁터를 페이지 어뎁터로 해주었다. 각각의 프레그먼트..

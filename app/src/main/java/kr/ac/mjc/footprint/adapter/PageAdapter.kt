@@ -1,8 +1,12 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import kr.ac.mjc.footprint.Fragment.CommunityFragment
+import kr.ac.mjc.footprint.Fragment.HomeFragment
+import kr.ac.mjc.footprint.Fragment.NoteFragment
+import kr.ac.mjc.footprint.Fragment.ProfileFragment
 
 class PageAdapter(fragmentManager: FragmentManager):FragmentPagerAdapter(fragmentManager) {
     //이 클래스를 상속 받으면 오버라이딩을 해야하는 함수들을 해줘야한다

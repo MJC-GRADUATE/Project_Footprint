@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.google.firebase.firestore.FirebaseFirestore
+import kr.ac.mjc.footprint.Data.Post
+import kr.ac.mjc.footprint.R
 
 class HomeAdapter(var context:Context,var postList:ArrayList<Post>):RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
@@ -41,7 +41,7 @@ class HomeAdapter(var context:Context,var postList:ArrayList<Post>):RecyclerView
         }*/
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         //레이아웃을 가져오는 과정
         var view = LayoutInflater.from(context).inflate(R.layout.item_home,parent,false)
         //가져온 레이아웃을 뷰홀더에 리턴
@@ -53,7 +53,7 @@ class HomeAdapter(var context:Context,var postList:ArrayList<Post>):RecyclerView
         //몇개의 레이아웃을 보내냐..
     }
 
-    override fun onBindViewHolder(holder: HomeAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         //바인드로 호출해주면 된다.
         var post=postList[position]
         //holder.bind(post)

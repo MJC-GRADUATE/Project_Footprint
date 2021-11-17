@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kr.ac.mjc.footprint.Data.User
 import java.util.*
 
 
@@ -73,7 +74,7 @@ class ChangeProfileActivity:AppCompatActivity() {
                             //업로드한 이미지에 실제로 접속 할 수있는 링크를 얻어와야한다.
                             it.metadata?.reference?.downloadUrl?.addOnSuccessListener {
                                 var profileUrl=it.toString()
-                                var user=User()
+                                var user= User()
                                 user.email=auth.currentUser?.email!!
                                 user.name=nameEt.text.toString()
                                 user.profiletext=profile_et.text.toString()

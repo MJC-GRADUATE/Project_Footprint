@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.Fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kr.ac.mjc.footprint.R
 import java.util.*
 
 class AddFragment:Fragment() {

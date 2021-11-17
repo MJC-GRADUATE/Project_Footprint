@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.Data
 
 import android.text.Editable
 import java.util.*

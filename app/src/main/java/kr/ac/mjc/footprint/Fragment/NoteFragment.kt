@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.Fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -17,6 +17,10 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import de.hdodenhof.circleimageview.CircleImageView
+import kr.ac.mjc.footprint.*
+import kr.ac.mjc.footprint.Data.Post2
+import kr.ac.mjc.footprint.Data.User
+import kr.ac.mjc.footprint.adapter.NoteAdapter
 
 
 class NoteFragment:Fragment(), NoteAdapter.OnItemClickListener {
@@ -28,7 +32,7 @@ class NoteFragment:Fragment(), NoteAdapter.OnItemClickListener {
     lateinit var firestore: FirebaseFirestore
 
     //lateinit var postList:ArrayList<Post> //이후 수업떄 가져옴
-    lateinit var noteAdapter:NoteAdapter
+    lateinit var noteAdapter: NoteAdapter
     lateinit var postList2:ArrayList<Post2>//
 
     lateinit var income_text: TextView
@@ -66,7 +70,7 @@ class NoteFragment:Fragment(), NoteAdapter.OnItemClickListener {
         exp_text = view.findViewById(R.id.exp_tv)
 
         fab.setOnClickListener {
-            var intent = Intent(activity,NoteAddActivity::class.java)
+            var intent = Intent(activity, NoteAddActivity::class.java)
             startActivity(intent)
         }
 
@@ -112,7 +116,7 @@ class NoteFragment:Fragment(), NoteAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(post: Post2) {
-        val intent2 = Intent(activity,DetailActivity::class.java)
+        val intent2 = Intent(activity, DetailActivity::class.java)
         intent2.putExtra("id",post.id)
         startActivity(intent2)
     }

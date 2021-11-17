@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.Data
 
 data class ResultSearchKeyword(
     var meta: PlaceMeta,                // 장소 메타데이터

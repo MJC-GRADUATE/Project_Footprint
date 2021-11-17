@@ -5,14 +5,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentChange
-import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import com.google.firebase.storage.FirebaseStorage
 import de.hdodenhof.circleimageview.CircleImageView
-import java.util.*
-import java.util.UUID as UUID1
+import kr.ac.mjc.footprint.Data.Post2
+import kr.ac.mjc.footprint.Data.User
 
 class DetailActivity:AppCompatActivity() {
     lateinit var detailTitle:TextView

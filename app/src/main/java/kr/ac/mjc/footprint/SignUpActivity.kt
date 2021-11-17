@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import kr.ac.mjc.footprint.Data.User
 
 class SignUpActivity: AppCompatActivity() {
     lateinit var name_et: EditText

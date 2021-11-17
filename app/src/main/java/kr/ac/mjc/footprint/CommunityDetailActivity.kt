@@ -7,6 +7,8 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import de.hdodenhof.circleimageview.CircleImageView
+import kr.ac.mjc.footprint.Data.Post
+import kr.ac.mjc.footprint.Data.User
 
 class CommunityDetailActivity:AppCompatActivity() {
     lateinit var title: TextView

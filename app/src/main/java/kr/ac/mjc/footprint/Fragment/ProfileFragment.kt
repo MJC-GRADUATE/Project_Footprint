@@ -1,4 +1,4 @@
-package kr.ac.mjc.footprint
+package kr.ac.mjc.footprint.Fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -17,6 +17,10 @@ import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import de.hdodenhof.circleimageview.CircleImageView
+import kr.ac.mjc.footprint.*
+import kr.ac.mjc.footprint.Data.Post
+import kr.ac.mjc.footprint.Data.User
+import kr.ac.mjc.footprint.adapter.ProfileAdapter
 
 
 class ProfileFragment: Fragment() {
@@ -31,7 +35,7 @@ class ProfileFragment: Fragment() {
     lateinit var firestore:FirebaseFirestore //가저올 저옵
 
     lateinit var postList:ArrayList<Post> //이후 수업떄 가져옴
-    lateinit var profileAdapter:ProfileAdapter
+    lateinit var profileAdapter: ProfileAdapter
 
     lateinit var  profile_text:TextView
     lateinit var  profile_text2:TextView
@@ -71,7 +75,7 @@ class ProfileFragment: Fragment() {
         //프로필을 변경 할 수있는 엑티비티 > button
 
         postList=ArrayList<Post>() //어뎁터와 리사이클러뷰 설정
-        profileAdapter=ProfileAdapter(activity!!,postList)
+        profileAdapter= ProfileAdapter(activity!!,postList)
 
         photoListRv.adapter=profileAdapter
         photoListRv.layoutManager=GridLayoutManager(activity!!,3)
@@ -92,7 +96,7 @@ class ProfileFragment: Fragment() {
                 }
 
         changeProfileBtn.setOnClickListener {
-            var intent= Intent(activity,ChangeProfileActivity::class.java)
+            var intent= Intent(activity, ChangeProfileActivity::class.java)
            // startActivity(intent) 바뀐값을 적용해주려면 이것은 안된다.
             startActivityForResult(intent,REQ_CHANGE_PROFILE)
 
@@ -102,7 +106,7 @@ class ProfileFragment: Fragment() {
             //firebase auth에서 sign out 기능 호출
 
             auth.signOut()
-            var intent=Intent(activity,LoginActivity::class.java) //로그인 페이지 이동
+            var intent=Intent(activity, LoginActivity::class.java) //로그인 페이지 이동
             startActivity(intent)
             activity?.finish()
         }
