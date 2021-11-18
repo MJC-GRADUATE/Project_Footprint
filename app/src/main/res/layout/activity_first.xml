@@ -22,6 +22,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="550dp"
             android:background="@drawable/custom_login_btn"
+            android:fontFamily="@font/nanumgothicbold"
             android:text="로그인"
             android:textColor="#FFFFFF" />
 
@@ -32,6 +33,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="21dp"
             android:background="@drawable/custom_login_btn"
+            android:fontFamily="@font/nanumgothicbold"
             android:text="회원가입"
             android:textColor="#FFFFFF" />
     </LinearLayout>

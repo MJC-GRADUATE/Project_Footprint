@@ -1,5 +1,6 @@
 package kr.ac.mjc.footprint.Fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,25 +10,32 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.*;
+import com.google.protobuf.JavaType;
 
 import kotlin.jvm.internal.Intrinsics;
+import kr.ac.mjc.footprint.Data.User;
 import kr.ac.mjc.footprint.Fragment.advFragment1;
 import kr.ac.mjc.footprint.Fragment.advFragment2;
 import kr.ac.mjc.footprint.Fragment.advFragment3;
+import kr.ac.mjc.footprint.MapActivity;
 import kr.ac.mjc.footprint.R;
 
 public class HomeFragment extends Fragment {
 
     int i=0;
-
 
     ViewPager viewPager;
     private advFragment1 fragment1;
@@ -37,7 +45,10 @@ public class HomeFragment extends Fragment {
     private FirebaseAuth mAuth;
     Bitmap bitmap;
 
+    private FirebaseFirestore firestore;
+
    // private ThirdFragment fragment3;
+
 
     public HomeFragment(){
 
@@ -63,7 +74,6 @@ public class HomeFragment extends Fragment {
         Intrinsics.checkNotNullExpressionValue(view, "inflater.inflate(R.layou…t_home, container, false)");
 
 
-
         Button btnfab  = view.findViewById(R.id.fab);
         /*
         ImageView profImage = view.findViewById(R.id.profile_iv);
@@ -78,62 +88,54 @@ public class HomeFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
+        firestore = FirebaseFirestore.getInstance();
 
         ImageView user_profile = view.findViewById(R.id.profile_iv);
 
         /*Thread mThread = new Thread(){
             @Override
-
             public void run() {
-
                 try{
-
                     //현재로그인한 사용자 정보를 통해 PhotoUrl 가져오기
-
                     URL url = new URL(user.getPhotoUrl().toString());
-
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
                     conn.setDoInput(true);
-
                     conn.connect();
 
-
                     InputStream is = conn.getInputStream();
-
                     bitmap = BitmapFactory.decodeStream(is);
 
                 } catch (MalformedURLException ee) {
-
                     ee.printStackTrace();
-
                 }catch (IOException e){
-
                     e.printStackTrace();
-
                 }
 
             }
         };
             mThread.start();
-
         try{
-
             mThread.join();
-
             //변환한 bitmap적용
-
             user_profile.setImageBitmap(bitmap);
-
         }catch (InterruptedException e){
-
             e.printStackTrace();
-
         }*/
 
+        // 메인 화면에 사용자명 표시
         TextView user_name = view.findViewById(R.id.name_tv);
-        user_name.setText(user.getDisplayName());
 
+        DocumentReference docRef = firestore.collection("User").document(user.getEmail());
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        User userClass = documentSnapshot.toObject(User.class);
+
+                        String name = userClass.getName();
+                        user_name.setText(name);
+
+                    }
+                });
 
 
         Intrinsics.checkNotNullExpressionValue(btnfab, "v.findViewById(R.id.fab)");
@@ -144,7 +146,7 @@ public class HomeFragment extends Fragment {
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 User user =
             }
-        });
+        });*/
 
 
         btnfab.setOnClickListener(new View.OnClickListener(){
@@ -152,11 +154,11 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),MapActivity.class);
+                Intent intent = new Intent(getActivity(), MapActivity.class);
                 startActivity(intent);
             }
         });
-*/
+
 
 
         fragment1=new advFragment1();
@@ -166,8 +168,6 @@ public class HomeFragment extends Fragment {
         viewPager=(ViewPager)view.findViewById(R.id.viewpager);
         viewPager.setAdapter(new PagerAdapter(getChildFragmentManager()));
         viewPager.setCurrentItem(0);
-
-
 
 
         return view;

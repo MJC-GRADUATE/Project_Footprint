@@ -32,6 +32,7 @@ class CommunityDetailActivity:AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
 
         var id = intent.getStringExtra("id")
+        //var uid = firestore.collection("Post").document().id
 
         if(id!=null) {
             firestore.collection("Post").document(id).get()
@@ -48,21 +49,21 @@ class CommunityDetailActivity:AppCompatActivity() {
                 }
 
             // 수정 예정.
-            firestore.collection("User").document(auth.currentUser?.email!!).get()
-                .addOnCompleteListener {
-                    if(it.isSuccessful){
-                        //성공적으로 가져왔을 때
-                        var user=it.result?.toObject(User::class.java)
-                        //이렇게 가져온 정보를 텍스트뷰와 프로필에 넣어준다.
-                        //여기서 글라이드가 필요하니 추가할 것
-                        nickname.text = user?.name
+            firestore.collection("Post").document(auth.currentUser?.email!!).get()
+                .addOnSuccessListener {
+                    //성공적으로 가져왔을 때
+                    var user=it.toObject(User::class.java)
+                    //이렇게 가져온 정보를 텍스트뷰와 프로필에 넣어준다.
+                    //여기서 글라이드가 필요하니 추가할 것
+                    nickname.text = user?.name
 
-                        if(user?.profileUrl!=null) {
-                            Glide.with(profile).load(user?.profileUrl).into(profile)
-                        }
+                    if(user?.profileUrl!=null) {
+                        Glide.with(profile).load(user?.profileUrl).into(profile)
                     }
                 }
+
         }
 
     }
+
 }

@@ -15,6 +15,7 @@ import kr.ac.mjc.footprint.CommunityDetailActivity
 import kr.ac.mjc.footprint.Data.Post
 import kr.ac.mjc.footprint.R
 import kr.ac.mjc.footprint.Data.User
+import org.w3c.dom.Text
 
 class AddAdapter(var context: Context, var postList:ArrayList<Post>): RecyclerView.Adapter<AddAdapter.ViewHolder>() {
 
@@ -43,6 +44,7 @@ class AddAdapter(var context: Context, var postList:ArrayList<Post>): RecyclerVi
                     var user = it.toObject(User::class.java)
                     Glide.with(profileIv3).load(user?.profileUrl).into(profileIv3)
                     writerTv.text = user?.name
+
                 }
 
             itemView.setOnClickListener {
