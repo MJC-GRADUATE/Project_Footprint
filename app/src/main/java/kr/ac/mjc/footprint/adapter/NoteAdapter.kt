@@ -32,11 +32,6 @@ class NoteAdapter(var context: Context, var postList:ArrayList<Post2>): Recycler
             expTv2.text = post.expEt
             dateItem.text = post.uploadDate.toString()
 
-//            itemView.setOnClickListener {
-//                val intent = Intent(itemView?.context,DetailActivity::class.java)
-//                intent.putExtra("id",post.id)
-//                startActivity(itemView?.context,intent,null)
-//            }
             itemView.setOnClickListener {
                 if (post.uid != null){
                     onItemClickListener?.onItemClick(post)

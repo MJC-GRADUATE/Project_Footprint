@@ -13,7 +13,7 @@
     android:background="@drawable/custom_login_btn">
 
     <View
-        android:id="@+id/green_circle_view"
+        android:id="@+id/circle_view"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
@@ -39,10 +39,10 @@
         android:layout_marginLeft="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/green_circle_view"
-        app:layout_constraintEnd_toEndOf="@+id/green_circle_view"
-        app:layout_constraintStart_toStartOf="@+id/green_circle_view"
-        app:layout_constraintTop_toTopOf="@+id/green_circle_view"
+        app:layout_constraintBottom_toBottomOf="@+id/circle_view"
+        app:layout_constraintEnd_toEndOf="@+id/circle_view"
+        app:layout_constraintStart_toStartOf="@+id/circle_view"
+        app:layout_constraintTop_toTopOf="@+id/circle_view"
         app:srcCompat="@drawable/baseline_perm_identity_black_18" />
 
     <TextView
@@ -95,10 +95,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="75dp"
         android:fontFamily="@font/noto_sans"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/profile_iv3"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/email_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginBottom="3dp"
+        android:text="TextView"
+        android:textSize="10sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/writer_tv"
+        app:layout_constraintTop_toBottomOf="@+id/writer_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

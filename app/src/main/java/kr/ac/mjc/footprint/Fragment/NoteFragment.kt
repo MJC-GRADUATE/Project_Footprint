@@ -31,9 +31,9 @@ class NoteFragment:Fragment(), NoteAdapter.OnItemClickListener {
     lateinit var auth: FirebaseAuth //로그인한 사용자
     lateinit var firestore: FirebaseFirestore
 
-    //lateinit var postList:ArrayList<Post> //이후 수업떄 가져옴
+    //lateinit var postList:ArrayList<Post>
     lateinit var noteAdapter: NoteAdapter
-    lateinit var postList2:ArrayList<Post2>//
+    lateinit var postList2:ArrayList<Post2>
 
     lateinit var income_text: TextView
     lateinit var exp_text: TextView
@@ -74,9 +74,9 @@ class NoteFragment:Fragment(), NoteAdapter.OnItemClickListener {
             startActivity(intent)
         }
 
-        firestore.collection("Post2") //홈 게시글 올릴 때 파이어스토어의 Post 에서 가져온다.
+        firestore.collection("Post2")
+            .whereEqualTo("userId",auth.currentUser?.email)//홈 게시글 올릴 때 파이어스토어의 Post 에서 가져온다.
             .orderBy("uploadDate", Query.Direction.ASCENDING)
-            .whereEqualTo("userId",auth.currentUser?.email)
             .addSnapshotListener { value, error ->
                 if(value!=null){
                     for(dc in value.documentChanges) {

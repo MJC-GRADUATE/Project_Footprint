@@ -48,7 +48,6 @@ class DetailActivity:AppCompatActivity() {
         var id = intent.getStringExtra("id")
 
         if(id!=null) {
-
             firestore.collection("Post2").document(id).get()
                 .addOnCompleteListener {
                     if (it.isSuccessful) {

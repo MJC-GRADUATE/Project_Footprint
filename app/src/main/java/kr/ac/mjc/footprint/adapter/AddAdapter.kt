@@ -2,6 +2,7 @@ package kr.ac.mjc.footprint.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +10,13 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import de.hdodenhof.circleimageview.CircleImageView
 import kr.ac.mjc.footprint.CommunityDetailActivity
 import kr.ac.mjc.footprint.Data.Post
 import kr.ac.mjc.footprint.R
 import kr.ac.mjc.footprint.Data.User
-import org.w3c.dom.Text
 
 class AddAdapter(var context: Context, var postList:ArrayList<Post>): RecyclerView.Adapter<AddAdapter.ViewHolder>() {
 
@@ -30,9 +31,19 @@ class AddAdapter(var context: Context, var postList:ArrayList<Post>): RecyclerVi
         var writerTv: TextView = itemView.findViewById(R.id.writer_tv)
         var profileIv3: CircleImageView = itemView.findViewById(R.id.profile_iv3)
 
+        var circleView: View = itemView.findViewById(R.id.circle_view)
+        var emailTv: TextView = itemView.findViewById(R.id.email_tv)
+
         var user= User()
 
         fun bind(post: Post){
+
+            var auth = FirebaseAuth.getInstance().currentUser
+            if (emailTv.text != auth?.email) {
+                circleView.setBackgroundResource(R.drawable.red_circle_view)
+            }else{
+                circleView.setBackgroundResource(R.drawable.green_circle_view)
+            }
 
             titleTv.text = post.textTitleEt
             textTv2.text = post.contentEt
@@ -44,14 +55,15 @@ class AddAdapter(var context: Context, var postList:ArrayList<Post>): RecyclerVi
                     var user = it.toObject(User::class.java)
                     Glide.with(profileIv3).load(user?.profileUrl).into(profileIv3)
                     writerTv.text = user?.name
+                    emailTv.text = user?.email
 
                 }
 
             itemView.setOnClickListener {
-                    onItemClickListener?.onItemClick(post)
-                    val intent = Intent(itemView?.context, CommunityDetailActivity::class.java)
-                    intent.putExtra("id",post.id)
-                    startActivity(itemView?.context, intent, null)
+                onItemClickListener?.onItemClick(post)
+                val intent = Intent(itemView?.context, CommunityDetailActivity::class.java)
+                intent.putExtra("id",post.id)
+                startActivity(itemView?.context, intent, null)
             }
 
         }
