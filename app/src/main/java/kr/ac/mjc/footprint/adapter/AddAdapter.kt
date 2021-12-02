@@ -39,7 +39,8 @@ class AddAdapter(var context: Context, var postList:ArrayList<Post>): RecyclerVi
         fun bind(post: Post){
 
             var auth = FirebaseAuth.getInstance().currentUser
-            if (emailTv.text != auth?.email) {
+
+            if (emailTv.text != auth?.email.toString()) {
                 circleView.setBackgroundResource(R.drawable.red_circle_view)
             }else{
                 circleView.setBackgroundResource(R.drawable.green_circle_view)

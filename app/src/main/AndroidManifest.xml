@@ -21,7 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FootPrint">
-        <activity android:name=".FirstActivity">
+        <activity android:name=".LoginActivity" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +30,6 @@
         </activity>
         <activity android:name=".ChangeProfileActivity"></activity>
         <activity android:name=".FindPasswordActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".AddActivity" />

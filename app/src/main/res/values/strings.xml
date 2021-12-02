@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">footprint</string>
+    <string name="app_name">발자취</string>
     <string name="daummap_key">817d547986882853307da4cf4f7d44b3</string>
     <string name="restapi_key">KakaoAK 715aa7ab55967eb2cf591a7771968270</string>
     <!-- Ted Permission -->

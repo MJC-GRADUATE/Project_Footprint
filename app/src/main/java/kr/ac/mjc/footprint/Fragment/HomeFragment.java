@@ -1,7 +1,6 @@
 package kr.ac.mjc.footprint.Fragment;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -43,7 +41,6 @@ public class HomeFragment extends Fragment {
     private advFragment3 fragment3;
 
     private FirebaseAuth mAuth;
-    Bitmap bitmap;
 
     private FirebaseFirestore firestore;
 
@@ -55,14 +52,11 @@ public class HomeFragment extends Fragment {
     }
 
 
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
-
 
 
     @Nullable
@@ -92,35 +86,6 @@ public class HomeFragment extends Fragment {
 
         ImageView user_profile = view.findViewById(R.id.profile_iv);
 
-        /*Thread mThread = new Thread(){
-            @Override
-            public void run() {
-                try{
-                    //현재로그인한 사용자 정보를 통해 PhotoUrl 가져오기
-                    URL url = new URL(user.getPhotoUrl().toString());
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    conn.setDoInput(true);
-                    conn.connect();
-
-                    InputStream is = conn.getInputStream();
-                    bitmap = BitmapFactory.decodeStream(is);
-
-                } catch (MalformedURLException ee) {
-                    ee.printStackTrace();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-
-            }
-        };
-            mThread.start();
-        try{
-            mThread.join();
-            //변환한 bitmap적용
-            user_profile.setImageBitmap(bitmap);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }*/
 
         // 메인 화면에 사용자명 표시
         TextView user_name = view.findViewById(R.id.name_tv);
@@ -139,8 +104,8 @@ public class HomeFragment extends Fragment {
 
 
         Intrinsics.checkNotNullExpressionValue(btnfab, "v.findViewById(R.id.fab)");
-/*
-        final DocumentReference userdoc = store.collection("User").document(auth.getCurrentUser().getUid());
+
+        /*final DocumentReference userdoc = store.collection("User").document(auth.getCurrentUser().getUid());
         userdoc.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {

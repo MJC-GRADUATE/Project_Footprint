@@ -32,7 +32,6 @@ class CommunityDetailActivity:AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
 
         var id = intent.getStringExtra("id")
-        //var uid = firestore.collection("Post").document().id
 
         if(id!=null) {
             firestore.collection("Post").document(id).get()
