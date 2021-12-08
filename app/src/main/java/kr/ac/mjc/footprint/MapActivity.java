@@ -812,4 +812,19 @@ public class MapActivity extends AppCompatActivity implements MapView.MapViewEve
     public void onBackPressed() {
         super.onBackPressed();
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        this.getSupportActionBar().hide();
+
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }

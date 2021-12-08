@@ -131,4 +131,19 @@ public class MapSearchDetailActivity extends AppCompatActivity {
         return dataVals;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        this.getSupportActionBar().hide();
+
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
 }

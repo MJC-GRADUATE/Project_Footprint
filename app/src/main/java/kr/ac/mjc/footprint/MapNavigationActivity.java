@@ -155,4 +155,19 @@ public class MapNavigationActivity extends AppCompatActivity implements MapView.
         mMapView.setShowCurrentLocationMarker(false);
         mMapView.setCustomCurrentLocationMarkerTrackingImage(R.drawable.makerme90, new MapPOIItem.ImageOffset(30,30));
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        this.getSupportActionBar().hide();
+
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }

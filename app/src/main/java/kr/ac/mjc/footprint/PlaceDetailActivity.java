@@ -38,4 +38,19 @@ public class PlaceDetailActivity extends AppCompatActivity {
         urlText.setText(document.getPlaceUrl());
         phoneText.setText(document.getPhone());
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        this.getSupportActionBar().hide();
+
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }
